@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Confetti Popup Modal | Requested Video | V2</title>
+	</head>
+	<body>
+		<div class="container">
+			<!-- <input type="text" name="name" id="nameInput" /> -->
+			<button class="open">Click Here!</button>
+			<!-- modal -->
+			<div class="box">
+				<div class="imgBox">
+					<img src="./logo.png" alt="" />
+				</div>
+				<h2 class="title">Happy New Year 2023</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+					voluptatum velit soluta dicta neque doloremque quaerat vitae. Harum
+					maxime dolor totam voluptatum soluta, excepturi optio magni quis odio
+					qui facere.
+				</p>
+				<div class="btnContainer">
+					<button class="close">Claim Now!</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="./confetti.min.js"></script>
+		<script>
+			// const strangerName = document.getElementById('nameInput').value;
+			const openBtn = document.querySelector('.open');
+			const modal = document.querySelector('.box');
+			const closeBtn = document.querySelector('.close');
+
+			openBtn.addEventListener('click', () => {
+				modal.classList.add('visible');
+				openBtn.classList.add('hidden');
+				const startConfetti = () => {
+					setTimeout(function () {
+						confetti.start();
+					}, 1000);
+				};
+
+				const stopConfetti = () => {
+					setTimeout(function () {
+						confetti.stop();
+					}, 5000);
+				};
+
+				const audio = new Audio('./confetti-pop-sound-effect.mp3');
+				// audio.play();
+
+				startConfetti();
+				stopConfetti();
+			});
+
+			closeBtn.addEventListener('click', () => {
+				modal.classList.remove('visible');
+				openBtn.classList.remove('hidden');
+			});
+		</script>
+	</body>
+</html>
